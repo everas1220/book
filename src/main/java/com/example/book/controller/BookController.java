@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.book.dto.BookDTO;
+
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -14,6 +16,22 @@ public class BookController {
 
     @GetMapping("/list")
     public void getList() {
-
+        log.info("book list 요청 ");
     }
+
+    @GetMapping({ "/read", "/modify" })
+    public void getRead(Long code) {
+        log.info("book get 요청 {}", code);
+    }
+
+    @GetMapping("/modify")
+    public void postModify(BookDTO dto) {
+        log.info("book list 요청 {}", dto);
+    }
+
+    @GetMapping("/remove")
+    public void postRemove(Long code) {
+        log.info("book list 요청 {}", code);
+    }
+
 }
